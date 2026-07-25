@@ -1,0 +1,16 @@
+{
+  "feeds": [
+    {
+      "name": "اتحادیه فناوران رایانه تهران",
+      "url": "https://itunion.ir/feed/"
+    },
+    {
+      "name": "سازمان سنجش",
+      "url": "https://www.sanjesh.org/fa-IR/sanjesh/4936/rss"
+    },
+    {
+      "name": "سازمان تأمین اجتماعی",
+      "url": "https://www.tamin.ir/rss"
+    }
+  ]
+}
