@@ -1,0 +1,62 @@
+[
+  {
+    "title": "آخرین ثبت‌نام‌های وام ازدواج و فرزندآوری",
+    "category": "وام و بانکی",
+    "summary": "ظرفیت بانک‌ها، شرایط روز و مراحل ثبت درخواست را در راهنمای کامل بررسی کنید.",
+    "date": "به‌روزرسانی دائمی",
+    "source": "بانک مرکزی",
+    "url": "https://ve.cbi.ir",
+    "service": "marriage-loan",
+    "image": "assets/news-banking.svg"
+  },
+  {
+    "title": "راهنمای اعتراض به دهک‌بندی و وضعیت یارانه",
+    "category": "حمایتی",
+    "summary": "نحوه مشاهده دهک، ثبت درخواست بازبینی و پیگیری پاسخ خانوار.",
+    "date": "به‌روزرسانی دائمی",
+    "source": "سامانه حمایت",
+    "url": "https://hemayat.mcls.gov.ir",
+    "service": "subsidy",
+    "image": "assets/news-subsidy.svg"
+  },
+  {
+    "title": "ثبت‌نام‌های دانش‌آموزی و سنجش سلامت",
+    "category": "آموزشی",
+    "summary": "آخرین راهنماهای مدارس، سنجش، شاهد، تیزهوشان و کتاب درسی.",
+    "date": "به‌روزرسانی دائمی",
+    "source": "آموزش‌وپرورش",
+    "url": "https://my.medu.ir",
+    "service": "school",
+    "image": "assets/news-school.svg"
+  },
+  {
+    "title": "خدمات جدید تأمین اجتماعی و بیمه سلامت",
+    "category": "بیمه",
+    "summary": "سابقه، پرداخت، فیش و خدمات غیرحضوری بیمه‌ای را یکجا ببینید.",
+    "date": "به‌روزرسانی دائمی",
+    "source": "تأمین اجتماعی",
+    "url": "https://es.tamin.ir",
+    "service": "insurance",
+    "image": "assets/news-insurance.svg"
+  },
+  {
+    "title": "ثبت قرارداد اجاره و کد رهگیری خودنویس",
+    "category": "ملک",
+    "summary": "مدارک مالک و مستأجر، مراحل تأیید و خطاهای رایج سامانه.",
+    "date": "به‌روزرسانی دائمی",
+    "source": "وزارت راه",
+    "url": "https://khodnevis.mrud.ir",
+    "service": "khodnevis",
+    "image": "assets/news-home.svg"
+  },
+  {
+    "title": "پرونده مالیاتی و اتصال کارت‌خوان",
+    "category": "مالیات",
+    "summary": "ثبت‌نام مودی، کد فعالیت، تکمیل پرونده و اتصال پایانه فروش.",
+    "date": "به‌روزرسانی دائمی",
+    "source": "سازمان امور مالیاتی",
+    "url": "https://my.tax.gov.ir",
+    "service": "tax",
+    "image": "assets/news-tax.svg"
+  }
+]
