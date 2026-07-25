@@ -5,6 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CFG = json.loads((ROOT / "data/news-sources.json").read_text(encoding="utf-8"))
 OLD = json.loads((ROOT / "data/news.json").read_text(encoding="utf-8"))
+EVERGREEN = [x for x in OLD if x.get("status") == "راهنمای کاربردی"]
 
 ACTION_WORDS = [
     "ثبت نام","آغاز شد","مهلت","تمدید","فعال شد","اعتراض","نوبت",
@@ -162,7 +163,7 @@ enriched = ai_enrich(found)
 
 if enriched:
     (ROOT / "data/news.json").write_text(
-        json.dumps(enriched[:10], ensure_ascii=False, indent=2),
+        json.dumps((enriched[:6] + EVERGREEN)[:12], ensure_ascii=False, indent=2),
         encoding="utf-8"
     )
     print("Published", len(enriched[:10]), "news items.")

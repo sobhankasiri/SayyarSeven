@@ -9,7 +9,7 @@
 <meta name="robots" content="index,follow">
 <link rel="canonical" href="https://sobhankasiri.github.io/kafenet-sayar-seven/">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/style.css?v=10">
+<link rel="stylesheet" href="assets/style.css?v=20">
 </head>
 <body>
 <div class="topline"><div class="container"><span>تخفیف افتتاح فروشگاه آنلاین سون</span><a href="tel:+989360453735">تماس: <bdi>09360453735</bdi></a></div></div>
@@ -47,6 +47,17 @@
 </div>
 </section>
 
+<section class="section news-section" id="news">
+<div class="container">
+<div class="news-hero reveal">
+  <div><span class="eyebrow">خبر و راهنمای روز</span><h2>اطلاعیه‌های مهم و خدمات قابل انجام</h2><p>این بخش هیچ‌وقت خالی نمی‌ماند؛ راهنماهای پرکاربرد همیشه نمایش داده می‌شوند و خبرهای تازه نیز با اجرای ربات به آن اضافه می‌شوند.</p></div>
+  <div class="news-status"><span class="status-dot"></span><b>خبرخوان سون</b><small id="newsStatusText">آماده دریافت خبرهای جدید</small></div>
+</div>
+<div id="newsGrid" class="news-grid"></div>
+<div class="news-info reveal"><b>نکته:</b> خبرهای تازه پس از اجرای GitHub Actions منتشر می‌شوند. تا قبل از اتصال کلید API، راهنماهای کاربردی بالا فعال و قابل سفارش هستند.</div>
+</div>
+</section>
+
 <section class="section delivery-section" id="delivery">
 <div class="container">
 <div class="section-head reveal"><div><span class="eyebrow">روش دریافت</span><h2>نتیجه سفارش چطور تحویل شود؟</h2></div></div>
@@ -59,13 +70,7 @@
 </div>
 </section>
 
-<section class="section news-section" id="news">
-<div class="container">
-<div class="section-head reveal"><div><span class="eyebrow">خبرخوان هوشمند</span><h2>اطلاعیه‌های کاربردی کافی‌نت</h2></div><span class="auto-badge">به‌روزرسانی زمان‌بندی‌شده</span></div>
-<div id="newsGrid" class="news-grid"></div>
-<div class="news-info reveal">زیرساخت خبرخوان خودکار داخل پروژه قرار گرفته است. بدون کلید هوش مصنوعی، خبرها از منابع RSS خوانده می‌شوند؛ با افزودن کلید API در GitHub Secrets، خلاصه‌سازی هوشمند هم فعال می‌شود.</div>
-</div>
-</section>
+
 
 <section class="section maps-section" id="maps">
 <div class="container map-panel reveal">
@@ -120,6 +125,21 @@
   </div>
 </div>
 
-<script src="assets/app.js?v=10"></script>
+
+<div class="chatbot-notice" id="chatbotNotice">سوالی درباره خدمات دارید؟ از ربات سون بپرسید <button id="chatNoticeClose">×</button></div>
+<button class="chatbot-launcher" id="chatbotLauncher" aria-label="باز کردن دستیار هوشمند">
+  <span class="chatbot-pulse"></span><span class="robot-face">✦</span><span class="chatbot-badge">۱</span>
+</button>
+<section class="chatbot-panel" id="chatbotPanel" aria-hidden="true">
+  <header class="chatbot-head"><div><span class="robot-mini">✦</span><div><b>دستیار هوشمند سون</b><small id="chatModeLabel">راهنمای خدمات</small></div></div><button id="chatbotClose">×</button></header>
+  <div class="chatbot-messages" id="chatbotMessages"></div>
+  <div class="chat-suggestions" id="chatSuggestions">
+    <button>مدارک وام ازدواج چیست؟</button><button>اعتراض یارانه چطور ثبت می‌شود؟</button><button>برای خودنویس چه مدارکی لازم است؟</button>
+  </div>
+  <form class="chatbot-form" id="chatbotForm"><textarea id="chatbotInput" rows="1" maxlength="500" placeholder="سوالتان را بنویسید..."></textarea><button type="submit">ارسال</button></form>
+  <small class="chatbot-privacy">اطلاعات محرمانه، رمز پیامک یا شماره کارت ارسال نکنید.</small>
+</section>
+
+<script src="assets/app.js?v=20"></script>
 </body>
 </html>

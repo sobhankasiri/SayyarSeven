@@ -10,5 +10,10 @@
     "google": "https://maps.app.goo.gl/kaVgXB6248QeW437A",
     "neshan": "https://nshn.ir/df_bvo0iNxz0Ml",
     "balad": "https://balad.ir/p/6Qa9IqSy5QrdGN"
+  },
+  "chatbot": {
+    "enabled": true,
+    "apiUrl": "",
+    "welcome": "سلام! من دستیار هوشمند کافی‌نت سون هستم. درباره مدارک، شرایط و مراحل خدمات از من بپرسید."
   }
 }

@@ -30,14 +30,17 @@ async function safeJson(url,fallback){
 }
 
 async function init(){
-  products=await safeJson('data/products.json?v=10',FALLBACK_PRODUCTS);
-  guides=await safeJson('data/guides.json?v=10',FALLBACK_GUIDES);
-  config=await safeJson('data/config.json?v=10',FALLBACK_CONFIG);
+  products=await safeJson('data/products.json?v=20',FALLBACK_PRODUCTS);
+  guides=await safeJson('data/guides.json?v=20',FALLBACK_GUIDES);
+  config=await safeJson('data/config.json?v=20',FALLBACK_CONFIG);
   buildFilters();
   renderProducts();
   renderCart();
   renderMessengers();
   loadNews();
+  const welcome=config.chatbot?.welcome||'سلام! درباره خدمات کافی‌نت از من بپرسید.';
+  if(!$('#chatbotMessages')?.children.length)addChatMessage('bot',welcome);
+  $('#chatModeLabel').textContent=config.chatbot?.apiUrl?'هوش مصنوعی آنلاین':'راهنمای خدمات';
 }
 
 function buildFilters(){
@@ -173,7 +176,7 @@ function renderMessengers(){
 
 let currentNews=[];
 async function loadNews(){
-  currentNews=await safeJson('data/news.json?v=10',FALLBACK_NEWS);
+  currentNews=await safeJson('data/news.json?v=20',FALLBACK_NEWS);
   const box=$('#newsGrid');
   if(!box)return;
   box.innerHTML=currentNews.slice(0,9).map((n,i)=>`
@@ -260,3 +263,62 @@ window.openGuide=id=>{
 window.closeGuide=()=>$('#guideModal')?.classList.remove('show');
 $('#guideClose')?.addEventListener('click',closeGuide);
 $('#guideModal')?.addEventListener('click',e=>{if(e.target.id==='guideModal')closeGuide()});
+
+
+// Floating assistant: local guide search + optional secure AI endpoint.
+const normalizeFa=s=>(s||'').toLowerCase().replace(/[يى]/g,'ی').replace(/ك/g,'ک').replace(/[\u200c\s]+/g,' ').trim();
+const escapeHtml=s=>(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function addChatMessage(role,text){
+  const box=$('#chatbotMessages'); if(!box)return;
+  const row=document.createElement('div'); row.className=`chat-message ${role}`;
+  row.innerHTML=`<div>${escapeHtml(text).replace(/\n/g,'<br>')}</div>`;
+  box.appendChild(row); box.scrollTop=box.scrollHeight;
+}
+function localChatAnswer(question){
+  const q=normalizeFa(question);
+  const words=q.split(' ').filter(x=>x.length>2);
+  const scored=guides.map(g=>{
+    const hay=normalizeFa([g.title,g.what,...(g.documents||[]),...(g.steps||[]),...(g.conditions||[])].join(' '));
+    let score=words.reduce((s,w)=>s+(hay.includes(w)?2:0),0);
+    if(q.includes(normalizeFa(g.title)))score+=8;
+    return {g,score};
+  }).sort((a,b)=>b.score-a.score);
+  const g=scored[0]?.score>0?scored[0].g:null;
+  if(!g) return 'موضوع سوال را کمی دقیق‌تر بنویسید؛ مثلاً «مدارک وام ازدواج»، «مراحل اعتراض یارانه» یا «شرایط خودنویس». همچنین می‌توانید از بخش فروشگاه، راهنمای کامل هر خدمت را باز کنید.';
+  const wantsDocs=/مدرک|مدارک|چی لازم/.test(q), wantsSteps=/مرحله|مراحل|چطور|چجوری|نحوه/.test(q), wantsConditions=/شرط|شرایط|چه کسانی/.test(q);
+  let parts=[`خدمت: ${g.title}`, g.what||''];
+  if(wantsDocs || (!wantsSteps&&!wantsConditions)) parts.push('مدارک لازم:\n• '+(g.documents||[]).slice(0,7).join('\n• '));
+  if(wantsSteps || (!wantsDocs&&!wantsConditions)) parts.push('مراحل انجام:\n'+(g.steps||[]).slice(0,7).map((x,i)=>`${i+1}. ${x}`).join('\n'));
+  if(wantsConditions) parts.push('شرایط مهم:\n• '+(g.eligibility||g.conditions||[]).slice(0,6).join('\n• '));
+  parts.push('مهلت و جزئیات نهایی باید از سامانه رسمی بررسی شود.');
+  return parts.filter(Boolean).join('\n\n');
+}
+async function askSevenBot(question){
+  const api=config.chatbot?.apiUrl?.trim();
+  if(!api)return localChatAnswer(question);
+  try{
+    $('#chatModeLabel').textContent='در حال پاسخ هوشمند';
+    const res=await fetch(api,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:question, guides})});
+    if(!res.ok)throw new Error('bad response');
+    const data=await res.json();
+    return data.answer||localChatAnswer(question);
+  }catch(e){ return localChatAnswer(question)+'\n\n(اتصال آنلاین موقتاً در دسترس نبود؛ پاسخ از راهنمای داخلی سایت داده شد.)'; }
+  finally{$('#chatModeLabel').textContent=config.chatbot?.apiUrl?'هوش مصنوعی آنلاین':'راهنمای خدمات'}
+}
+function openChatbot(){
+  $('#chatbotPanel')?.classList.add('open'); $('#chatbotPanel')?.setAttribute('aria-hidden','false');
+  $('#chatbotBadge')?.remove(); $('#chatbotNotice')?.classList.add('hide');
+  setTimeout(()=>$('#chatbotInput')?.focus(),150);
+}
+function closeChatbot(){ $('#chatbotPanel')?.classList.remove('open'); $('#chatbotPanel')?.setAttribute('aria-hidden','true'); }
+$('#chatbotLauncher')?.addEventListener('click',openChatbot);
+$('#chatbotClose')?.addEventListener('click',closeChatbot);
+$('#chatNoticeClose')?.addEventListener('click',e=>{e.stopPropagation();$('#chatbotNotice')?.classList.add('hide')});
+$('#chatbotNotice')?.addEventListener('click',openChatbot);
+$('#chatSuggestions')?.addEventListener('click',e=>{if(e.target.matches('button')){$('#chatbotInput').value=e.target.textContent;$('#chatbotForm').requestSubmit();}});
+$('#chatbotForm')?.addEventListener('submit',async e=>{
+  e.preventDefault(); const input=$('#chatbotInput'); const q=input.value.trim(); if(!q)return;
+  addChatMessage('user',q); input.value=''; addChatMessage('bot','در حال بررسی...');
+  const pending=$('#chatbotMessages .bot:last-child'); const answer=await askSevenBot(q); pending.innerHTML=`<div>${escapeHtml(answer).replace(/\n/g,'<br>')}</div>`;
+});
+setTimeout(()=>$('#chatbotNotice')?.classList.remove('hide'),1800);
