@@ -1,0 +1,291 @@
+[
+  {
+    "id": "prereg",
+    "title": "پیش‌ثبت‌نام اینترنتی",
+    "category": "ثبت‌نام",
+    "official": 375000,
+    "price": 180000,
+    "unit": "هر نفر",
+    "delivery": [
+      "digital",
+      "pickup"
+    ],
+    "desc": "ورود اطلاعات، کنترل اولیه و تحویل رسید یا کد پیگیری."
+  },
+  {
+    "id": "insurance-pay",
+    "title": "پرداخت حق بیمه",
+    "category": "بیمه",
+    "official": 80000,
+    "price": 45000,
+    "unit": "هر پرداخت",
+    "delivery": [
+      "digital",
+      "pickup"
+    ],
+    "desc": "پرداخت حق بیمه آنلاین با کارت مشتری؛ هزینه سامانه جداست."
+  },
+  {
+    "id": "sport-insurance",
+    "title": "ثبت‌نام بیمه ورزشی",
+    "category": "بیمه",
+    "official": 240000,
+    "price": 90000,
+    "unit": "هر نفر",
+    "delivery": [
+      "digital",
+      "pickup"
+    ],
+    "desc": "ثبت بیمه ورزشی و تحویل رسید نهایی."
+  },
+  {
+    "id": "khodnevis",
+    "title": "قرارداد سامانه خودنویس",
+    "category": "ملک",
+    "official": 1600000,
+    "price": 1100000,
+    "unit": "هر قرارداد پایه",
+    "delivery": [
+      "digital",
+      "pickup"
+    ],
+    "desc": "ثبت قرارداد پایه مالک و مستأجر؛ شرکا و خدمات جانبی جدا محاسبه می‌شود."
+  },
+  {
+    "id": "amlak",
+    "title": "ثبت املاک و اسکان",
+    "category": "ملک",
+    "official": 320000,
+    "price": 90000,
+    "unit": "ملک اول",
+    "delivery": [
+      "digital",
+      "pickup"
+    ],
+    "desc": "ثبت اقامتگاه یا ملک اول در سامانه املاک و اسکان."
+  },
+  {
+    "id": "print-a4",
+    "title": "پرینت سیاه‌وسفید A4",
+    "category": "چاپ",
+    "official": 15000,
+    "price": 10000,
+    "unit": "هر برگ",
+    "delivery": [
+      "pickup",
+      "post"
+    ],
+    "desc": "پرینت یک‌رو روی کاغذ معمولی؛ فایل باید آماده چاپ باشد."
+  },
+  {
+    "id": "judicial",
+    "title": "دریافت ابلاغیه قضایی",
+    "category": "قضایی",
+    "official": 55000,
+    "price": 45000,
+    "unit": "هر ابلاغیه",
+    "delivery": [
+      "digital",
+      "pickup",
+      "post"
+    ],
+    "desc": "دریافت ابلاغیه؛ چاپ در صورت نیاز جدا محاسبه می‌شود."
+  },
+  {
+    "id": "criminal",
+    "title": "درخواست عدم سوءپیشینه",
+    "category": "قضایی",
+    "official": 140000,
+    "price": 120000,
+    "unit": "هر درخواست",
+    "delivery": [
+      "digital",
+      "pickup"
+    ],
+    "desc": "ثبت درخواست؛ هزینه دولتی سامانه جداست."
+  },
+  {
+    "id": "insurance-history",
+    "title": "دریافت سابقه بیمه",
+    "category": "بیمه",
+    "official": 60000,
+    "price": 50000,
+    "unit": "هر دریافت",
+    "delivery": [
+      "digital",
+      "pickup",
+      "post"
+    ],
+    "desc": "دریافت سابقه تأمین اجتماعی؛ چاپ جدا محاسبه می‌شود."
+  },
+  {
+    "id": "salary-slip",
+    "title": "فیش حقوقی بازنشستگی",
+    "category": "بیمه",
+    "official": 60000,
+    "price": 50000,
+    "unit": "هر دریافت",
+    "delivery": [
+      "digital",
+      "pickup",
+      "post"
+    ],
+    "desc": "دریافت فیش یا حکم حقوقی بازنشستگی."
+  },
+  {
+    "id": "marriage-loan",
+    "title": "ثبت‌نام وام ازدواج",
+    "category": "بانکی",
+    "official": 400000,
+    "price": 320000,
+    "unit": "هر نفر",
+    "delivery": [
+      "digital",
+      "pickup"
+    ],
+    "desc": "ثبت اولیه، کنترل اطلاعات و تحویل کد رهگیری."
+  },
+  {
+    "id": "plate",
+    "title": "نوبت تعویض پلاک",
+    "category": "خودرو",
+    "official": 240000,
+    "price": 190000,
+    "unit": "هر نوبت",
+    "delivery": [
+      "digital",
+      "pickup"
+    ],
+    "desc": "رزرو نوبت؛ پرداخت‌های سامانه جداست."
+  },
+  {
+    "id": "traffic-fine",
+    "title": "پرداخت خلافی خودرو",
+    "category": "خودرو",
+    "official": 95000,
+    "price": 75000,
+    "unit": "هر پرداخت",
+    "delivery": [
+      "digital",
+      "pickup"
+    ],
+    "desc": "استعلام و پرداخت خلافی؛ مبلغ جریمه جداست."
+  },
+  {
+    "id": "subsidy",
+    "title": "اعتراض به یارانه و دهک",
+    "category": "دولتی",
+    "official": 140000,
+    "price": 110000,
+    "unit": "هر درخواست",
+    "delivery": [
+      "digital",
+      "pickup"
+    ],
+    "desc": "ثبت اعتراض و تحویل کد پیگیری."
+  },
+  {
+    "id": "sports-school",
+    "title": "ثبت‌نام مدارس نمونه/تیزهوشان",
+    "category": "تحصیلی",
+    "official": 240000,
+    "price": 190000,
+    "unit": "هر نفر",
+    "delivery": [
+      "digital",
+      "pickup"
+    ],
+    "desc": "ثبت‌نام و تحویل رسید؛ هزینه آزمون جداست."
+  },
+  {
+    "id": "book",
+    "title": "ثبت‌نام کتاب درسی",
+    "category": "تحصیلی",
+    "official": 110000,
+    "price": 90000,
+    "unit": "هر نفر",
+    "delivery": [
+      "digital",
+      "pickup"
+    ],
+    "desc": "ثبت سفارش کتاب؛ مبلغ کتاب از کارت مشتری پرداخت می‌شود."
+  },
+  {
+    "id": "national-card",
+    "title": "ثبت‌نام کارت ملی هوشمند",
+    "category": "هویتی",
+    "official": 190000,
+    "price": 150000,
+    "unit": "هر نفر",
+    "delivery": [
+      "digital",
+      "pickup"
+    ],
+    "desc": "ثبت درخواست اولیه؛ هزینه‌های دولتی جداست."
+  },
+  {
+    "id": "sayad-register",
+    "title": "ثبت چک صیادی",
+    "category": "بانکی",
+    "official": 120000,
+    "price": 95000,
+    "unit": "هر چک",
+    "delivery": [
+      "digital",
+      "pickup"
+    ],
+    "desc": "ثبت چک صیادی و تحویل تاییدیه."
+  },
+  {
+    "id": "sayad-confirm",
+    "title": "تأیید چک صیادی",
+    "category": "بانکی",
+    "official": 120000,
+    "price": 95000,
+    "unit": "هر چک",
+    "delivery": [
+      "digital",
+      "pickup"
+    ],
+    "desc": "تأیید دریافت چک صیادی."
+  },
+  {
+    "id": "tax-login",
+    "title": "ثبت‌نام درگاه مالیاتی",
+    "category": "مالیات",
+    "official": 80000,
+    "price": 65000,
+    "unit": "هر مودی",
+    "delivery": [
+      "digital",
+      "pickup"
+    ],
+    "desc": "ثبت‌نام اولیه در درگاه ملی خدمات مالیاتی."
+  },
+  {
+    "id": "scan",
+    "title": "اسکن A4",
+    "category": "چاپ",
+    "official": 20000,
+    "price": 15000,
+    "unit": "هر برگ",
+    "delivery": [
+      "digital",
+      "pickup"
+    ],
+    "desc": "اسکن رنگی یا سیاه‌وسفید تا A4؛ تنظیمات پیچیده جداست."
+  },
+  {
+    "id": "color-print",
+    "title": "پرینت رنگی متن A4",
+    "category": "چاپ",
+    "official": 25000,
+    "price": 20000,
+    "unit": "هر برگ",
+    "delivery": [
+      "pickup",
+      "post"
+    ],
+    "desc": "چاپ رنگی متن روی کاغذ معمولی."
+  }
+]
